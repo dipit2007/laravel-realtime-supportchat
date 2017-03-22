@@ -10,6 +10,8 @@ use Validator;
 
 use App\BroadcastMessage;
 
+use App\Events\BroadcastMessageEvent;
+
 class BroadcastMessageController extends Controller
 {
     /**
@@ -61,6 +63,8 @@ class BroadcastMessageController extends Controller
         $broadcastmessagedata->user_id = $user->id;
 
         $broadcastmessagedata->save();
+
+        event(new BroadcastMessageEvent());
 
         $request->session()->flash('status', 'Task was successful!');
 
