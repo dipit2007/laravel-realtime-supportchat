@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Auth;
 
+use Validator;
+
 use App\BroadcastMessage;
 
 class BroadcastMessageController extends Controller
@@ -28,7 +30,6 @@ class BroadcastMessageController extends Controller
     public function create()
     {
         return view('broadcastmessage.create');
-
     }
 
     /**
@@ -39,7 +40,31 @@ class BroadcastMessageController extends Controller
      */
     public function store(Request $request)
     {
-        return "Store";
+        //dd($request);
+
+        $validator = Validator::make($request->all(), [
+            'broadcastmessage' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {            
+            return redirect(route('broadcastmessage.create'))
+            ->withInput()
+            ->withErrors($validator);            
+        }
+
+        // Store the new message
+        $user = Auth::user();
+
+        $broadcastmessagedata = new BroadcastMessage;
+
+        $broadcastmessagedata->message = $request->broadcastmessage;
+        $broadcastmessagedata->user_id = $user->id;
+
+        $broadcastmessagedata->save();
+
+        $request->session()->flash('status', 'Task was successful!');
+
+        return redirect(route('broadcastmessage.create'));
     }
 
     /**
