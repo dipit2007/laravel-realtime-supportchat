@@ -25,7 +25,7 @@ const app = new Vue({
 
     created() {
 
-        Echo.join('broadcastmessage')
+        Echo.channel('broadcastmessage')
             .here((users) => {
                 this.usersInRoom = users;
             })

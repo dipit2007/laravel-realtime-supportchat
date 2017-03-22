@@ -50,6 +50,6 @@ class BroadcastMessageEvent implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return 'broadcastmessage.received';
+        return 'BroadcastMessagePosted';
     }
 }
