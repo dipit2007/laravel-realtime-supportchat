@@ -39,7 +39,7 @@ class BroadcastMessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Store";
     }
 
     /**
