@@ -25,8 +25,8 @@ const app = new Vue({
 
     created() {
 
-        Echo.channel('broadcastmessage')
-            .here((users) => {
+        window.Echo.channel('broadcastmessage')
+            /*.here((users) => {
                 this.usersInRoom = users;
             })
             .joining((user) => {
@@ -34,7 +34,7 @@ const app = new Vue({
             })
             .leaving((user) => {
                 this.usersInRoom = this.usersInRoom.filter(u => u != user)
-            })
+            })*/
             .listen('BroadcastMessagePosted', (e) => {
                 this.messages.push({
                     message: e.message.message,

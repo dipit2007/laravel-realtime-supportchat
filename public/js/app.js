@@ -11233,7 +11233,33 @@ __webpack_require__(31);
 Vue.component('example', __webpack_require__(36));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+
+    data: {
+        messages: [],
+        usersInRoom: []
+    },
+
+    created: function created() {
+        var _this = this;
+
+        window.Echo.channel('broadcastmessage')
+        /*.here((users) => {
+            this.usersInRoom = users;
+        })
+        .joining((user) => {
+            this.usersInRoom.push(user);
+        })
+        .leaving((user) => {
+            this.usersInRoom = this.usersInRoom.filter(u => u != user)
+        })*/
+        .listen('BroadcastMessagePosted', function (e) {
+            _this.messages.push({
+                message: e.message.message
+            });
+            console.log(e);
+        });
+    }
 });
 
 /***/ }),
