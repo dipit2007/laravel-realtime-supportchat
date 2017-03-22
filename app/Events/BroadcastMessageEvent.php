@@ -40,7 +40,7 @@ class BroadcastMessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('broadcastmessage');
+        return new Channel('broadcastmessage');
     }
 
     /**

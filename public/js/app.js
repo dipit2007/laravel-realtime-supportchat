@@ -11254,6 +11254,7 @@ var app = new Vue({
             this.usersInRoom = this.usersInRoom.filter(u => u != user)
         })*/
         .listen('BroadcastMessagePosted', function (e) {
+            console.log(e);
             _this.messages.push({
                 message: e.message.message
             });
