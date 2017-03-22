@@ -16,5 +16,31 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        messages: [],
+        usersInRoom: []
+    },
+
+    created() {
+
+        Echo.join('broadcastmessage')
+            .here((users) => {
+                this.usersInRoom = users;
+            })
+            .joining((user) => {
+                this.usersInRoom.push(user);
+            })
+            .leaving((user) => {
+                this.usersInRoom = this.usersInRoom.filter(u => u != user)
+            })
+            .listen('BroadcastMessagePosted', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    //user: e.user
+                });
+                console.log(e);
+            });
+    }
 });
