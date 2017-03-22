@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\BroadcastMessage;
+
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -15,13 +17,20 @@ class BroadcastMessageEvent implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * Message
+     *
+     * @var Message
+     */
+    public $message;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(BroadcastMessage $message)
     {
-        //
+        $this->message = $message;
     }
 
     /**

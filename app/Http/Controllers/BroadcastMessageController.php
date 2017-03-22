@@ -64,7 +64,7 @@ class BroadcastMessageController extends Controller
 
         $broadcastmessagedata->save();
 
-        event(new BroadcastMessageEvent());
+        event(new BroadcastMessageEvent($broadcastmessagedata));
 
         $request->session()->flash('status', 'Task was successful!');
 
