@@ -82,6 +82,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
