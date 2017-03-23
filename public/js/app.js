@@ -11243,7 +11243,7 @@ var app = new Vue({
     created: function created() {
         var _this = this;
 
-        window.Echo.channel('broadcastmessage')
+        window.Echo.private('broadcastmessage')
         /*.here((users) => {
             this.usersInRoom = users;
         })
