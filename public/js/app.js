@@ -11253,12 +11253,11 @@ var app = new Vue({
         .leaving((user) => {
             this.usersInRoom = this.usersInRoom.filter(u => u != user)
         })*/
-        .listen('BroadcastMessagePosted', function (e) {
+        .listen('BroadcastMessageEvent', function (e) {
             console.log(e);
             _this.messages.push({
                 message: e.message.message
             });
-            console.log(e);
         });
     }
 });
@@ -12193,7 +12192,7 @@ window.Pusher = __webpack_require__(35);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: '0f612b86ea53df0c6c0d',
+  key: 'fa622b31daf81986fe08',
   cluster: 'ap2',
   encrypted: true
 });

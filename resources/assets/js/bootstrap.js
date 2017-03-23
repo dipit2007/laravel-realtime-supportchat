@@ -44,7 +44,7 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: '0f612b86ea53df0c6c0d',
+    key: 'fa622b31daf81986fe08',
     cluster: 'ap2',
     encrypted: true
 });

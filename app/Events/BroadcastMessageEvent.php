@@ -48,7 +48,7 @@ class BroadcastMessageEvent implements ShouldBroadcast
      *
      * @return string
      */
-    public function broadcastAs()
+    public function __broadcastAs()
     {
         return 'BroadcastMessagePosted';
     }

@@ -35,13 +35,12 @@ const app = new Vue({
             .leaving((user) => {
                 this.usersInRoom = this.usersInRoom.filter(u => u != user)
             })*/
-            .listen('BroadcastMessagePosted', (e) => {
+            .listen('BroadcastMessageEvent', (e) => {
             	console.log(e);
                 this.messages.push({
                     message: e.message.message,
                     //user: e.user
                 });
-                console.log(e);
             });
     }
 });
