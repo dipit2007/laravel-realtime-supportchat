@@ -14,4 +14,5 @@
         </div>
     </div>
 </div>
+<activity :user="{{ auth()->user() }}"></activity>
 @endsection

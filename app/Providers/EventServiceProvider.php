@@ -20,6 +20,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\BroadcastMessageEvent' => [
             'App\Listeners\BroadcastMessageEventListener',
         ],
+
+        'App\Events\RealtimeActivityEvent' => [
+            'App\Listeners\RealtimeActivityEventListener',
+        ],
     ];
 
     /**

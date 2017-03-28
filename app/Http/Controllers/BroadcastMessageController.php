@@ -11,6 +11,7 @@ use Validator;
 use App\BroadcastMessage;
 
 use App\Events\BroadcastMessageEvent;
+use App\Events\RealtimeActivityEvent;
 
 class BroadcastMessageController extends Controller
 {
@@ -65,6 +66,7 @@ class BroadcastMessageController extends Controller
         $broadcastmessagedata->save();
 
         event(new BroadcastMessageEvent($broadcastmessagedata));
+        event(new RealtimeActivityEvent($broadcastmessagedata));
 
         $request->session()->flash('status', 'Task was successful!');
 
