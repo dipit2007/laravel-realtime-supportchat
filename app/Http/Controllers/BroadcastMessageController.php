@@ -44,15 +44,18 @@ class BroadcastMessageController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-
         $validator = Validator::make($request->all(), [
-            'broadcastmessage' => 'required|max:255',
+            'message' => 'required|max:255',
         ]);
 
-        if ($validator->fails()) {            
-            return redirect(route('broadcastmessage.create'))
-            ->withInput()
-            ->withErrors($validator);            
+        if ($validator->fails()) {
+            if($request->ajax()){
+                return ['status' => 'validatorfails' , 'message' => $validator->errors()];
+            } else {
+                return redirect(route('broadcastmessage.create'))
+                ->withInput()
+                ->withErrors($validator);   
+            }
         }
 
         // Store the new message
@@ -60,7 +63,7 @@ class BroadcastMessageController extends Controller
 
         $broadcastmessagedata = new BroadcastMessage;
 
-        $broadcastmessagedata->message = $request->broadcastmessage;
+        $broadcastmessagedata->message = $request->message;
         $broadcastmessagedata->user_id = $user->id;
 
         $broadcastmessagedata->save();
@@ -70,7 +73,11 @@ class BroadcastMessageController extends Controller
 
         $request->session()->flash('status', 'Task was successful!');
 
-        return redirect(route('broadcastmessage.create'));
+        if($request->ajax()){
+            return ['status' => "success", "message" => "Message Saved OK","data" => $broadcastmessagedata ];
+        } else {
+            return redirect(route('broadcastmessage.create'));
+        }
     }
 
     /**

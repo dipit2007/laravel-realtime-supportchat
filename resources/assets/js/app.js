@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('activity', require('./components/UserRealtimeActivity.vue'));
+Vue.component('broadcastmessage-form', require('./components/BroadcastMessageForm.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -43,5 +44,20 @@ const app = new Vue({
                     //user: e.user
                 });
             });
+    },
+    methods: {
+        fetchMessages() {
+            axios.get('/messages').then(response => {
+                this.messages = response.data;
+            });
+        },
+
+        addNewBroadcastMessage(message) {
+            this.messages.push(message);
+
+            axios.post('/broadcastmessage', message).then(response => {
+              console.log(response.data);
+            });
+        }
     }
 });
