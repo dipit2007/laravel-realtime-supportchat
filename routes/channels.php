@@ -22,3 +22,9 @@ Broadcast::channel('broadcastmessage', function ($user) {
 Broadcast::channel('activity.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('support.{id}', function ($user, $id) {
+    //if ($user->canJoinRoom($roomId)) {
+    return ['id' => $user->id, 'name' => $user->name];
+    //}
+});

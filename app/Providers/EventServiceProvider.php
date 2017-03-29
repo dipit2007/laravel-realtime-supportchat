@@ -24,6 +24,11 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\RealtimeActivityEvent' => [
             'App\Listeners\RealtimeActivityEventListener',
         ],
+
+        'App\Events\SupportChatMessageEvent' => [
+            'App\Listeners\SupportChatMessageEventListener',
+        ],
+
     ];
 
     /**

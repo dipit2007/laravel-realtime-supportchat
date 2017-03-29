@@ -1,0 +1,26 @@
+http://127.0.0.1:6001/apps/2c37972fa6db434a/events?auth_key=8dd18f96e2dc6f6805e2068160fc16ec
+
+
+/apps/:APP_ID/status
+
+
+http://127.0.0.1:6001/apps/2c37972fa6db434a/status?auth_key=8dd18f96e2dc6f6805e2068160fc16ec
+{"subscription_count":2,"uptime":2992.558,"memory_usage":{"rss":62357504,"heapTotal":35532800,"heapUsed":28304136,"external":345632}}
+
+
+GET /apps/:APP_ID/channels
+
+
+http://127.0.0.1:6001/apps/2c37972fa6db434a/channels?auth_key=8dd18f96e2dc6f6805e2068160fc16ec
+{"channels":{"private-broadcastmessage":{"subscription_count":2,"occupied":true},"presence-support.1":{"subscription_count":2,"occupied":true}}}
+
+
+
+GET /apps/:APP_ID/channels/:CHANNEL_NAME
+
+http://127.0.0.1:6001/apps/2c37972fa6db434a/channels/presence-support.1?auth_key=8dd18f96e2dc6f6805e2068160fc16ec
+{"subscription_count":2,"occupied":true,"user_count":1}
+
+GET /apps/:APP_ID/channels/:CHANNEL_NAME/users
+http://127.0.0.1:6001/apps/2c37972fa6db434a/channels/presence-support.1/users?auth_key=8dd18f96e2dc6f6805e2068160fc16ec
+

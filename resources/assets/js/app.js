@@ -16,6 +16,7 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('activity', require('./components/UserRealtimeActivity.vue'));
 Vue.component('broadcastmessage-form', require('./components/BroadcastMessageForm.vue'));
+Vue.component('supportchatmessages', require('./components/SupportChatMessages.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -56,6 +57,13 @@ const app = new Vue({
             this.messages.push(message);
 
             axios.post('/broadcastmessage', message).then(response => {
+              console.log(response.data);
+            });
+        },
+        addNewSupportChatMessage(message) {
+            //this.messages.push(message);
+
+            axios.post('/supportchat', message).then(response => {
               console.log(response.data);
             });
         }
