@@ -26,7 +26,11 @@ class SupportChatAdminController extends Controller
      */
     public function index()
     {
-        return view('supportchat.home');
+        if(Auth::user()->id === 1){
+            return view('supportchat.adminhome');
+        } else {
+            return view('supportchat.home');
+        }
     }
 
     /**
@@ -101,9 +105,13 @@ class SupportChatAdminController extends Controller
     {
         $foruser = User::find($id);
 
-        return view('supportchat.supportuserchat',[
+        if($foruser){
+            return view('supportchat.supportuserchat',[
                 'foruser' => $foruser,
             ]);
+        } else {
+            return "User NOT Found";
+        }
     }
 
     /**
