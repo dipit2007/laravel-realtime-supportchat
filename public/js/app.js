@@ -12522,18 +12522,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         listenForRealtimeActivity: function listenForRealtimeActivity() {
             var _this = this;
 
+            var self = this;
             Echo.join('support.' + this.user.id).here(function (members) {
                 // runs when you join
                 console.table(members);
             }).joining(function (joiningMember, members) {
                 // runs when another member joins
                 console.table(joiningMember);
+                self.supportchatmessages.push({ "message": "Support agent joined" });
             }).leaving(function (leavingMember, members) {
                 // runs when another member leaves
                 console.table(leavingMember);
             }).listen('SupportChatMessageEvent', function (e) {
                 console.log(e.message.message);
                 _this.supportchatmessages.push(e.message);
+            }).listenForWhisper('supportagentjoining', function (e) {
+                console.log(e.name);
+                _this.supportchatmessages.push("Support agent joined : " + e.message);
             });
         }
     },
@@ -12601,6 +12606,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).listen('SupportChatMessageEvent', function (e) {
                 console.log(e.message.message);
                 _this.supportchatmessages.push(e.message);
+            }).whisper('supportagentjoining', {
+                name: this.user.name
             });
         }
     },

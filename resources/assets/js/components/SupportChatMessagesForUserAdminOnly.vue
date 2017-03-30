@@ -51,7 +51,11 @@
                     .listen('SupportChatMessageEvent', (e) => {
                         console.log(e.message.message);
                         this.supportchatmessages.push(e.message);
+                    })
+                    .whisper('supportagentjoining', {
+                        name: this.user.name
                     });
+                    
             }
         },
         events: {
