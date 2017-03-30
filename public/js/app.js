@@ -11339,6 +11339,19 @@ var app = new Vue({
             axios.post('/supportchat', message).then(function (response) {
                 console.log(response.data);
             });
+        },
+        receivedNewSupportChatMessage: function receivedNewSupportChatMessage(message) {
+            //this.messages.push(message);
+            console.log('receivedNewSupportChatMessage');
+            console.log(message);
+        }
+    },
+    events: {
+        'newsupportchatmessage': function newsupportchatmessage(data) {
+            // Your code. 
+            console.log('newsupportchatmessage');
+            this.$broadcast('newsupportchatmessage', data.message);
+            //this.supportchatmessages.push(data);
         }
     }
 });
@@ -12302,7 +12315,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             console.log("joinChatChannel");
-            Echo.join(channel).here(function (members) {
+            console.log(channel.split('-')[1]);
+            Echo.join(channel.split('-')[1]).here(function (members) {
                 // runs when you join
                 console.table(members);
             }).joining(function (joiningMember, members) {
@@ -12312,8 +12326,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 // runs when another member leaves
                 console.table(leavingMember);
             }).listen('SupportChatMessageEvent', function (e) {
+                console.log("Support channel from user");
                 console.log(e.message.message);
-                _this.supportchatchannels.push(e.message);
+                //this.supportchatchannels.push(e.message);
+
+                _this.$emit('newsupportchatmessage', {
+                    user: _this.user,
+                    message: e.message.message
+                });
             });
         },
         getFeed: function getFeed() {
@@ -12321,7 +12341,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var self = this;
             return axios.get('/supportchat/create', {}).then(function (response) {
                 console.log(response.data);
-                self.supportchatchannels = response.data.channels;
+
+                var key;
+                var keys = new Array();
+                var x = 0;
+
+                for (key in response.data.channels) {
+                    keys[x] = key;
+                    ++x;
+                }
+
+                self.supportchatchannels = keys; //response.data.channels;
             });
         },
         listenForRealtimeActivity: function listenForRealtimeActivity() {
@@ -12401,6 +12431,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(e.message.message);
                 _this.supportchatmessages.push(e.message);
             });
+        }
+    },
+    events: {
+        'newsupportchatmessage': function newsupportchatmessage(data) {
+            // Your code. 
+            this.supportchatmessages.push(data);
         }
     }
 });
@@ -32960,7 +32996,7 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('ul', {
     staticClass: "list-group"
-  }, _vm._l((_vm.supportchatchannels), function(channel, key) {
+  }, _vm._l((_vm.supportchatchannels), function(channel) {
     return _c('li', {
       staticClass: "list-group-item"
     }, [_c('button', {
@@ -32970,10 +33006,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       on: {
         "click": function($event) {
-          _vm.joinChatChannel(key)
+          _vm.joinChatChannel(channel)
         }
       }
-    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n        " + _vm._s(key) + " --> " + _vm._s(channel) + "  \n        "), _c('span', {
+    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel) + "  \n        "), _c('span', {
       staticClass: "pull-right"
     }, [_vm._v(_vm._s(channel.created_at))])])
   }))

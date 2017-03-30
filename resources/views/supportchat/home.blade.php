@@ -8,7 +8,7 @@
                 <div class="panel-heading">Support Channels</div>
 
                 <div class="panel-body" style="max-height: 300px;overflow: auto;">
-                    <supportchatchannels :user="{{ auth()->user() }}"></supportchatchannels>
+                    <supportchatchannels v-on:newsupportchatmessage="receivedNewSupportChatMessage" :user="{{ auth()->user() }}"></supportchatchannels>
                 </div>
             </div>
         </div>

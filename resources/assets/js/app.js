@@ -67,6 +67,20 @@ const app = new Vue({
             axios.post('/supportchat', message).then(response => {
               console.log(response.data);
             });
+        },
+        receivedNewSupportChatMessage(message) {
+            //this.messages.push(message);
+            console.log('receivedNewSupportChatMessage');
+            console.log(message);
+            
         }
-    }
+    },
+    events: {
+            'newsupportchatmessage' : function(data){
+                // Your code. 
+                console.log('newsupportchatmessage');
+                this.$broadcast('newsupportchatmessage', data.message);
+                //this.supportchatmessages.push(data);
+            },
+        },
 });

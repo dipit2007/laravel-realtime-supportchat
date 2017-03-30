@@ -53,6 +53,12 @@
                         this.supportchatmessages.push(e.message);
                     });
             }
-        }
+        },
+        events: {
+            'newsupportchatmessage' : function(data){
+                // Your code. 
+                this.supportchatmessages.push(data);
+            },
+        },
     }
 </script>

@@ -1,11 +1,11 @@
 <template>
 
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="(channel,key) in supportchatchannels">
-                            <button class="btn btn-primary btn-sm" id="btn-chat" @click="joinChatChannel(key)">
+                        <li class="list-group-item" v-for="channel in supportchatchannels">
+                            <button class="btn btn-primary btn-sm" id="btn-chat" @click="joinChatChannel(channel)">
                                 Connect
                             </button>
-                            {{ key }} --> {{ channel }}  
+                             {{ channel }}  
                             <span class="pull-right">{{ channel.created_at }}</span>
                         </li>
                     </ul>
@@ -32,7 +32,8 @@
         methods: {
             joinChatChannel(channel){
                 console.log("joinChatChannel");
-                Echo.join(channel)
+                console.log(channel.split('-')[1]);
+                Echo.join(channel.split('-')[1])
                     .here(function (members) {
                         // runs when you join
                         console.table(members);
@@ -46,8 +47,15 @@
                         console.table(leavingMember);
                     })
                     .listen('SupportChatMessageEvent', (e) => {
+                        console.log("Support channel from user");
                         console.log(e.message.message);
-                        this.supportchatchannels.push(e.message);
+                        //this.supportchatchannels.push(e.message);
+                        
+                        this.$emit('newsupportchatmessage', {
+                            user: this.user,
+                            message: e.message.message
+                        });
+
                     });
             },
             getFeed() {
@@ -56,7 +64,21 @@
                 return axios.get('/supportchat/create', {})
                 .then(function(response) {
                     console.log(response.data);
-                    self.supportchatchannels = response.data.channels;
+
+
+
+                    var key;
+    var keys = new Array();
+    var x = 0;
+        
+    for (  key in response.data.channels)
+    {
+        keys[x] = key;
+        ++ x;
+    }
+
+
+                    self.supportchatchannels = keys;//response.data.channels;
                 });
             },
             listenForRealtimeActivity() {
