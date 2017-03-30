@@ -1,9 +1,12 @@
 <template>
 
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="item in supportchatchannels">
-                            {{ item }}  
-                            <span class="pull-right">{{ item.created_at }}</span>
+                        <li class="list-group-item" v-for="(channel,key) in supportchatchannels">
+                            <button class="btn btn-primary btn-sm" id="btn-chat" @click="joinChatChannel(key)">
+                                Connect
+                            </button>
+                            {{ key }} --> {{ channel }}  
+                            <span class="pull-right">{{ channel.created_at }}</span>
                         </li>
                     </ul>
                 
@@ -27,6 +30,26 @@
             //this.listenForRealtimeActivity();
         },
         methods: {
+            joinChatChannel(channel){
+                console.log("joinChatChannel");
+                Echo.join(channel)
+                    .here(function (members) {
+                        // runs when you join
+                        console.table(members);
+                    })
+                    .joining(function (joiningMember, members) {
+                        // runs when another member joins
+                        console.table(joiningMember);
+                    })
+                    .leaving(function (leavingMember, members) {
+                        // runs when another member leaves
+                        console.table(leavingMember);
+                    })
+                    .listen('SupportChatMessageEvent', (e) => {
+                        console.log(e.message.message);
+                        this.supportchatchannels.push(e.message);
+                    });
+            },
             getFeed() {
                 console.log("getFeed");
                 var self = this;
