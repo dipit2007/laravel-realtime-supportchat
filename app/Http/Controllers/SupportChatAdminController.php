@@ -103,6 +103,9 @@ class SupportChatAdminController extends Controller
      */
     public function show($id)
     {
+        if(Auth::user()->id !== 1){
+            return "NOT ALLOWED";
+        }
         $foruser = User::find($id);
 
         if($foruser){
