@@ -12299,8 +12299,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log("getFeed");
             var self = this;
             return axios.get('/supportchat/create', {}).then(function (response) {
-                console.log(response);
-                self.supportchatchannels = response.channels;
+                console.log(response.data);
+                self.supportchatchannels = response.data.channels;
             });
         },
         listenForRealtimeActivity: function listenForRealtimeActivity() {
@@ -33054,7 +33054,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.supportchatchannels), function(item) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n        " + _vm._s(item.channels) + "  \n        "), _c('span', {
+    }, [_vm._v("\n        " + _vm._s(item) + "  \n        "), _c('span', {
       staticClass: "pull-right"
     }, [_vm._v(_vm._s(item.created_at))])])
   }))

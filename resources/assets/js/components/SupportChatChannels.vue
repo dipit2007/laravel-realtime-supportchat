@@ -2,7 +2,7 @@
 
                     <ul class="list-group">
                         <li class="list-group-item" v-for="item in supportchatchannels">
-                            {{ item.channels }}  
+                            {{ item }}  
                             <span class="pull-right">{{ item.created_at }}</span>
                         </li>
                     </ul>
@@ -32,8 +32,8 @@
                 var self = this;
                 return axios.get('/supportchat/create', {})
                 .then(function(response) {
-                    console.log(response);
-                    self.supportchatchannels = response.channels;
+                    console.log(response.data);
+                    self.supportchatchannels = response.data.channels;
                 });
             },
             listenForRealtimeActivity() {
