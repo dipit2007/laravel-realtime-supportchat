@@ -17,6 +17,7 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('activity', require('./components/UserRealtimeActivity.vue'));
 Vue.component('broadcastmessage-form', require('./components/BroadcastMessageForm.vue'));
 Vue.component('supportchatmessages', require('./components/SupportChatMessages.vue'));
+Vue.component('supportchatchannels', require('./components/SupportChatChannels.vue'));
 
 const app = new Vue({
     el: '#app',

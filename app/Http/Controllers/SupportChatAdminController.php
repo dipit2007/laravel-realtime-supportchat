@@ -13,6 +13,8 @@ use App\BroadcastMessage;
 
 use App\Events\SupportChatMessageEvent;
 
+use GuzzleHttp\Client;
+
 class SupportChatAdminController extends Controller
 {
     /**
@@ -32,7 +34,13 @@ class SupportChatAdminController extends Controller
      */
     public function create()
     {
-        //
+        $http = new Client;
+
+        $response = $http->get('http://127.0.0.1:6001/apps/2c37972fa6db434a/channels?auth_key=8dd18f96e2dc6f6805e2068160fc16ec');
+
+        return response($response->getBody(),200)->header('Content-Type', 'application/json; charset=utf-8');
+        //json_decode((string) $response->getBody(), true);
+        //return response('Hello World', 200)->header('Content-Type', 'text/plain');
     }
 
     /**
