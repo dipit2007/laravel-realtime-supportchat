@@ -33,10 +33,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Send Message</div>
                 <div class="panel-body">
-                    <broadcastmessage-form
-                        v-on:messagesent="addNewSupportChatMessage"
+                    <supportchatmessageform
+                        v-on:messagesent="addNewSupportChatMessageFromUser"
                         :user="{{ Auth::user() }}"
-                    ></broadcastmessage-form>
+                    ></supportchatmessageform>
                 </div>
             </div>
         </div>

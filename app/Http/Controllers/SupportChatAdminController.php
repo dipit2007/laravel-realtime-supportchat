@@ -15,6 +15,8 @@ use App\Events\SupportChatMessageEvent;
 
 use GuzzleHttp\Client;
 
+use App\User;
+
 class SupportChatAdminController extends Controller
 {
     /**
@@ -54,6 +56,7 @@ class SupportChatAdminController extends Controller
         //dd($request);
         $validator = Validator::make($request->all(), [
             'message' => 'required|max:255',
+            'foruser' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -72,7 +75,8 @@ class SupportChatAdminController extends Controller
         $broadcastmessagedata = new BroadcastMessage;
 
         $broadcastmessagedata->message = $request->message;
-        $broadcastmessagedata->user_id = $user->id;
+        //$broadcastmessagedata->user_id = $user->id;
+        $broadcastmessagedata->user_id = $request->foruser['id'];
 
         $broadcastmessagedata->save();
 
@@ -95,7 +99,11 @@ class SupportChatAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $foruser = User::find($id);
+
+        return view('supportchat.supportuserchat',[
+                'foruser' => $foruser,
+            ]);
     }
 
     /**

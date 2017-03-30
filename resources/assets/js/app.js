@@ -16,8 +16,15 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('activity', require('./components/UserRealtimeActivity.vue'));
 Vue.component('broadcastmessage-form', require('./components/BroadcastMessageForm.vue'));
+
+Vue.component('supportchatmessageform', require('./components/SupportChatMessageForm.vue'));
 Vue.component('supportchatmessages', require('./components/SupportChatMessages.vue'));
+
 Vue.component('supportchatchannels', require('./components/SupportChatChannels.vue'));
+
+
+Vue.component('supportchatmessageformadminonly', require('./components/SupportChatMessageFormAdminOnly.vue'));
+Vue.component('supportchatmessagesforuseradminonly', require('./components/SupportChatMessagesForUserAdminOnly.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -62,6 +69,20 @@ const app = new Vue({
             });
         },
         addNewSupportChatMessage(message) {
+            //this.messages.push(message);
+
+            axios.post('/supportchat', message).then(response => {
+              console.log(response.data);
+            });
+        },
+        addNewSupportChatMessageFromUser(message) {
+            //this.messages.push(message);
+
+            axios.post('/supportchat', message).then(response => {
+              console.log(response.data);
+            });
+        },
+        addNewSupportChatMessageFromAdmin(message) {
             //this.messages.push(message);
 
             axios.post('/supportchat', message).then(response => {
