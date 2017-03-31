@@ -12496,6 +12496,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['user'],
@@ -12529,16 +12530,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).joining(function (joiningMember, members) {
                 // runs when another member joins
                 console.table(joiningMember);
-                self.supportchatmessages.push({ "message": "Support agent joined" });
+                //self.supportchatmessages.push({"message":"Support agent joined"});
             }).leaving(function (leavingMember, members) {
                 // runs when another member leaves
                 console.table(leavingMember);
+                //self.supportchatmessages.push({"message":"Support agent left"});
             }).listen('SupportChatMessageEvent', function (e) {
-                console.log(e.message.message);
-                _this.supportchatmessages.push(e.message);
+                console.log(e);
+                _this.supportchatmessages.push(e);
             }).listenForWhisper('supportagentjoining', function (e) {
                 console.log(e.name);
-                _this.supportchatmessages.push("Support agent joined : " + e.message);
+                //this.supportchatmessages.push("Support agent joined : " + e.message);
             });
         }
     },
@@ -12556,6 +12558,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -12605,7 +12608,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.table(leavingMember);
             }).listen('SupportChatMessageEvent', function (e) {
                 console.log(e.message.message);
-                _this.supportchatmessages.push(e.message);
+                _this.supportchatmessages.push(e);
             }).whisper('supportagentjoining', {
                 name: this.user.name
             });
@@ -33005,13 +33008,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(31),
   /* template */
-  __webpack_require__(55),
+  __webpack_require__(53),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/BroadcastMessageForm.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/BroadcastMessageForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] BroadcastMessageForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33022,9 +33025,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3813f494", Component.options)
+    hotAPI.createRecord("data-v-63efdac1", Component.options)
   } else {
-    hotAPI.reload("data-v-3813f494", Component.options)
+    hotAPI.reload("data-v-63efdac1", Component.options)
   }
 })()}
 
@@ -33045,7 +33048,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/Example.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33056,9 +33059,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-716c344e", Component.options)
+    hotAPI.createRecord("data-v-fbf3ed3a", Component.options)
   } else {
-    hotAPI.reload("data-v-716c344e", Component.options)
+    hotAPI.reload("data-v-fbf3ed3a", Component.options)
   }
 })()}
 
@@ -33073,13 +33076,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(33),
   /* template */
-  __webpack_require__(57),
+  __webpack_require__(51),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatChannels.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatChannels.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SupportChatChannels.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33090,9 +33093,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-60a0fb1b", Component.options)
+    hotAPI.createRecord("data-v-2e3a4ea0", Component.options)
   } else {
-    hotAPI.reload("data-v-60a0fb1b", Component.options)
+    hotAPI.reload("data-v-2e3a4ea0", Component.options)
   }
 })()}
 
@@ -33107,13 +33110,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(34),
   /* template */
-  __webpack_require__(51),
+  __webpack_require__(54),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessageForm.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessageForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33124,9 +33127,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-05c87cf0", Component.options)
+    hotAPI.createRecord("data-v-6ea13b3b", Component.options)
   } else {
-    hotAPI.reload("data-v-05c87cf0", Component.options)
+    hotAPI.reload("data-v-6ea13b3b", Component.options)
   }
 })()}
 
@@ -33141,13 +33144,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(54),
+  __webpack_require__(52),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessageFormAdminOnly.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessageFormAdminOnly.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageFormAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33158,9 +33161,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-23f64d3b", Component.options)
+    hotAPI.createRecord("data-v-41977350", Component.options)
   } else {
-    hotAPI.reload("data-v-23f64d3b", Component.options)
+    hotAPI.reload("data-v-41977350", Component.options)
   }
 })()}
 
@@ -33175,13 +33178,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(36),
   /* template */
-  __webpack_require__(53),
+  __webpack_require__(56),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessages.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessages.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SupportChatMessages.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33192,9 +33195,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-18ceba97", Component.options)
+    hotAPI.createRecord("data-v-bddecfa8", Component.options)
   } else {
-    hotAPI.reload("data-v-18ceba97", Component.options)
+    hotAPI.reload("data-v-bddecfa8", Component.options)
   }
 })()}
 
@@ -33209,13 +33212,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(37),
   /* template */
-  __webpack_require__(56),
+  __webpack_require__(55),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessagesForUserAdminOnly.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessagesForUserAdminOnly.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SupportChatMessagesForUserAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33226,9 +33229,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e5de6fe", Component.options)
+    hotAPI.createRecord("data-v-87b80ada", Component.options)
   } else {
-    hotAPI.reload("data-v-3e5de6fe", Component.options)
+    hotAPI.reload("data-v-87b80ada", Component.options)
   }
 })()}
 
@@ -33243,13 +33246,13 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(38),
   /* template */
-  __webpack_require__(52),
+  __webpack_require__(57),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/UserRealtimeActivity.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/UserRealtimeActivity.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UserRealtimeActivity.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33260,9 +33263,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0f0fd1d1", Component.options)
+    hotAPI.createRecord("data-v-e1ecb248", Component.options)
   } else {
-    hotAPI.reload("data-v-0f0fd1d1", Component.options)
+    hotAPI.reload("data-v-e1ecb248", Component.options)
   }
 })()}
 
@@ -33271,6 +33274,39 @@ module.exports = Component.exports
 
 /***/ }),
 /* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.supportchatchannels), function(channel) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_c('button', {
+      staticClass: "btn btn-primary btn-sm",
+      attrs: {
+        "id": "btn-chat"
+      },
+      on: {
+        "click": function($event) {
+          _vm.joinChatChannel(channel)
+        }
+      }
+    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel) + "  \n        "), _c('span', {
+      staticClass: "pull-right"
+    }, [_vm._v(_vm._s(channel.created_at))])])
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2e3a4ea0", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33319,42 +33355,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-05c87cf0", module.exports)
-  }
-}
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Realtime Activity Dashboard")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.activities), function(item) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                            " + _vm._s(item.message) + "  \n                            "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))])])
-  }))])])])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0f0fd1d1", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-41977350", module.exports)
   }
 }
 
@@ -33363,21 +33364,52 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.supportchatmessages), function(item) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n        " + _vm._s(item.message) + "  \n        "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))])])
-  }))
+  return _c('div', {
+    staticClass: "input-group"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.newMessage),
+      expression: "newMessage"
+    }],
+    staticClass: "form-control input-sm",
+    attrs: {
+      "id": "btn-input",
+      "type": "text",
+      "name": "message",
+      "placeholder": "Type your message here..."
+    },
+    domProps: {
+      "value": (_vm.newMessage)
+    },
+    on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.sendMessage($event)
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.newMessage = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "input-group-btn"
+  }, [_c('button', {
+    staticClass: "btn btn-primary btn-sm",
+    attrs: {
+      "id": "btn-chat"
+    },
+    on: {
+      "click": _vm.sendMessage
+    }
+  }, [_vm._v("\n            Send\n        ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-18ceba97", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-63efdac1", module.exports)
   }
 }
 
@@ -33431,7 +33463,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-23f64d3b", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-6ea13b3b", module.exports)
   }
 }
 
@@ -33440,52 +33472,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "input-group"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.newMessage),
-      expression: "newMessage"
-    }],
-    staticClass: "form-control input-sm",
-    attrs: {
-      "id": "btn-input",
-      "type": "text",
-      "name": "message",
-      "placeholder": "Type your message here..."
-    },
-    domProps: {
-      "value": (_vm.newMessage)
-    },
-    on: {
-      "keyup": function($event) {
-        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
-        _vm.sendMessage($event)
-      },
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.newMessage = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "input-group-btn"
-  }, [_c('button', {
-    staticClass: "btn btn-primary btn-sm",
-    attrs: {
-      "id": "btn-chat"
-    },
-    on: {
-      "click": _vm.sendMessage
-    }
-  }, [_vm._v("\n            Send\n        ")])])])
+  return _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.supportchatmessages), function(item) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n        " + _vm._s(item.message.message) + "  \n        "), _c('span', {
+      staticClass: "pull-right"
+    }, [_vm._v(_vm._s(item.message.created_at))]), _vm._v(" "), _c('br'), _vm._v("-- " + _vm._s(item.fromuser.name) + " \n    ")])
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3813f494", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-87b80ada", module.exports)
   }
 }
 
@@ -33499,16 +33500,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.supportchatmessages), function(item) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n        " + _vm._s(item.message) + "  \n        "), _c('span', {
+    }, [_vm._v("\n        " + _vm._s(item.message.message) + "  \n        "), _c('span', {
       staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))])])
+    }, [_vm._v(_vm._s(item.message.created_at))]), _vm._v(" "), _c('br'), _vm._v("-- " + _vm._s(item.fromuser.name) + " \n    ")])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3e5de6fe", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-bddecfa8", module.exports)
   }
 }
 
@@ -33517,31 +33518,33 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Realtime Activity Dashboard")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('ul', {
     staticClass: "list-group"
-  }, _vm._l((_vm.supportchatchannels), function(channel) {
+  }, _vm._l((_vm.activities), function(item) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_c('button', {
-      staticClass: "btn btn-primary btn-sm",
-      attrs: {
-        "id": "btn-chat"
-      },
-      on: {
-        "click": function($event) {
-          _vm.joinChatChannel(channel)
-        }
-      }
-    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel) + "  \n        "), _c('span', {
+    }, [_vm._v("\n                            " + _vm._s(item.message) + "  \n                            "), _c('span', {
       staticClass: "pull-right"
-    }, [_vm._v(_vm._s(channel.created_at))])])
-  }))
+    }, [_vm._v(_vm._s(item.created_at))])])
+  }))])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-60a0fb1b", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-e1ecb248", module.exports)
   }
 }
 
@@ -33570,7 +33573,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-716c344e", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-fbf3ed3a", module.exports)
   }
 }
 

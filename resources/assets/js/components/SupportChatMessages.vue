@@ -2,8 +2,9 @@
 
                     <ul class="list-group">
                         <li class="list-group-item" v-for="item in supportchatmessages">
-                            {{ item.message }}  
-                            <span class="pull-right">{{ item.created_at }}</span>
+                            {{ item.message.message }}  
+                            <span class="pull-right">{{ item.message.created_at }}</span>
+                            <br/>-- {{ item.fromuser.name }} 
                         </li>
                     </ul>
                 
@@ -44,19 +45,20 @@
                     .joining(function (joiningMember, members) {
                         // runs when another member joins
                         console.table(joiningMember);
-                        self.supportchatmessages.push({"message":"Support agent joined"});
+                        //self.supportchatmessages.push({"message":"Support agent joined"});
                     })
                     .leaving(function (leavingMember, members) {
                         // runs when another member leaves
                         console.table(leavingMember);
+                        //self.supportchatmessages.push({"message":"Support agent left"});
                     })
                     .listen('SupportChatMessageEvent', (e) => {
-                        console.log(e.message.message);
-                        this.supportchatmessages.push(e.message);
+                        console.log(e);
+                        this.supportchatmessages.push(e);
                     })
                     .listenForWhisper('supportagentjoining', (e) => {
                         console.log(e.name);
-                        this.supportchatmessages.push("Support agent joined : " + e.message);
+                        //this.supportchatmessages.push("Support agent joined : " + e.message);
                     });
             }
         },

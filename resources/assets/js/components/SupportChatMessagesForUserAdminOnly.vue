@@ -2,8 +2,9 @@
 
                     <ul class="list-group">
                         <li class="list-group-item" v-for="item in supportchatmessages">
-                            {{ item.message }}  
-                            <span class="pull-right">{{ item.created_at }}</span>
+                            {{ item.message.message }}  
+                            <span class="pull-right">{{ item.message.created_at }}</span>
+                            <br/>-- {{ item.fromuser.name }} 
                         </li>
                     </ul>
                 
@@ -50,7 +51,7 @@
                     })
                     .listen('SupportChatMessageEvent', (e) => {
                         console.log(e.message.message);
-                        this.supportchatmessages.push(e.message);
+                        this.supportchatmessages.push(e);
                     })
                     .whisper('supportagentjoining', {
                         name: this.user.name

@@ -22,6 +22,8 @@ class SupportChatMessageEvent implements ShouldBroadcast
      * @var Message
      */
     public $message;
+    public $fromuser;
+    public $touser;
 
 
     /**
@@ -32,6 +34,8 @@ class SupportChatMessageEvent implements ShouldBroadcast
     public function __construct(SupportChatMessage $message)
     {
         $this->message = $message;
+        $this->fromuser = $message->fromuser;
+        $this->touser = $message->touser;        
         //$this->message->touser = $message->touser;
         //$this->message->fromuser = $message->fromuser;
     }
