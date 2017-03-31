@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\BroadcastMessage;
+use App\SupportChatMessage;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -29,7 +29,7 @@ class SupportChatMessageEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(BroadcastMessage $message)
+    public function __construct(SupportChatMessage $message)
     {
         $this->message = $message;
     }
@@ -41,6 +41,6 @@ class SupportChatMessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('support.' . $this->message->user_id);
+        return new PresenceChannel('support.' . $this->message->to_user_id);
     }
 }

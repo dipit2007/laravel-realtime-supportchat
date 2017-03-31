@@ -10,6 +10,7 @@ use Auth;
 use Validator;
 
 use App\BroadcastMessage;
+use App\SupportChatMessage;
 
 use App\Events\SupportChatMessageEvent;
 
@@ -76,20 +77,21 @@ class SupportChatAdminController extends Controller
         // Store the new message
         $user = Auth::user();
 
-        $broadcastmessagedata = new BroadcastMessage;
+        $supportchatmessage = new SupportChatMessage;
 
-        $broadcastmessagedata->message = $request->message;
-        //$broadcastmessagedata->user_id = $user->id;
-        $broadcastmessagedata->user_id = $request->foruser['id'];
+        $supportchatmessage->message = $request->message;
+        $supportchatmessage->from_user_id = $user->id;
+        $supportchatmessage->to_user_id = $request->foruser['id'];
+        $supportchatmessage->channel = 'support.' . $request->foruser['id'];
 
-        $broadcastmessagedata->save();
+        $supportchatmessage->save();
 
-        event(new SupportChatMessageEvent($broadcastmessagedata));
+        event(new SupportChatMessageEvent($supportchatmessage));
 
         //$request->session()->flash('status', 'Task was successful!');
 
         if($request->ajax()){
-            return ['status' => "success", "message" => "Message Saved OK","data" => $broadcastmessagedata ];
+            return ['status' => "success", "message" => "Message Saved OK","data" => $supportchatmessage ];
         } else {
             return redirect(route('supportchat.create'));
         }
