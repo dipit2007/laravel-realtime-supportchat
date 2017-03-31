@@ -12367,7 +12367,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var x = 0;
 
                 for (key in response.data.channels) {
-                    keys[x] = key;
+                    var uid = key.split('-')[1].split('.')[1];
+                    keys[x] = { "key": key, "url": "supportchat/" + uid };
                     ++x;
                 }
 
@@ -33526,17 +33527,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.supportchatchannels), function(channel) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_c('button', {
+    }, [_c('a', {
       staticClass: "btn btn-primary btn-sm",
       attrs: {
+        "href": channel.url,
+        "target": "_blank",
         "id": "btn-chat"
       },
       on: {
         "click": function($event) {
-          _vm.joinChatChannel(channel)
+          _vm.joinChatChannel(channel.key)
         }
       }
-    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel) + "  \n        "), _c('span', {
+    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel.key) + "  \n        "), _c('span', {
       staticClass: "pull-right"
     }, [_vm._v(_vm._s(channel.created_at))])])
   }))

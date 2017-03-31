@@ -2,10 +2,10 @@
 
                     <ul class="list-group">
                         <li class="list-group-item" v-for="channel in supportchatchannels">
-                            <button class="btn btn-primary btn-sm" id="btn-chat" @click="joinChatChannel(channel)">
+                            <a :href="channel.url" target="_blank" class="btn btn-primary btn-sm" id="btn-chat" @click="joinChatChannel(channel.key)">
                                 Connect
-                            </button>
-                             {{ channel }}  
+                            </a>
+                             {{ channel.key }}  
                             <span class="pull-right">{{ channel.created_at }}</span>
                         </li>
                     </ul>
@@ -72,8 +72,9 @@
     var x = 0;
         
     for (  key in response.data.channels)
-    {
-        keys[x] = key;
+    {   
+        var uid = key.split('-')[1].split('.')[1];
+        keys[x] = {"key":key,"url":"supportchat/"+uid};
         ++ x;
     }
 
