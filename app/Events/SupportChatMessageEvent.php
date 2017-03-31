@@ -22,6 +22,8 @@ class SupportChatMessageEvent implements ShouldBroadcast
      * @var Message
      */
     public $message;
+    public $to_user_id;
+    public $created_at;
     public $fromuser;
     public $touser;
 
@@ -33,7 +35,9 @@ class SupportChatMessageEvent implements ShouldBroadcast
      */
     public function __construct(SupportChatMessage $message)
     {
-        $this->message = $message;
+        $this->message = $message->message;
+        $this->to_user_id = $message->to_user_id;
+        $this->created_at = $message->created_at;
         $this->fromuser = $message->fromuser;
         $this->touser = $message->touser;        
         //$this->message->touser = $message->touser;
@@ -47,6 +51,6 @@ class SupportChatMessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('support.' . $this->message->to_user_id);
+        return new PresenceChannel('support.' . $this->to_user_id);
     }
 }

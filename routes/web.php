@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('broadcastmessage', 'BroadcastMessageController');
 
+Route::get('supportchat/history/{uid}', 'SupportChatAdminController@history');
 Route::resource('supportchat', 'SupportChatAdminController');

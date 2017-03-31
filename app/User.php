@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function supportchatmessages()
+    {
+        return $this->hasMany('App\SupportChatMessage', 'to_user_id', 'id')->with(['touser','fromuser']);
+    }
 }

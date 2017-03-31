@@ -21,6 +21,16 @@ use App\User;
 class SupportChatAdminController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -154,5 +164,34 @@ class SupportChatAdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function history($uid)
+    {   
+        //return $uid;
+        if( Auth::user()->id !== 1 ){
+            //return "not admin";
+            //return Auth::user();
+            if( Auth::user()->id == $uid ) {
+                //return "same user";
+                return Auth::user()->supportchatmessages;
+            } else {
+                return [];
+            }
+        } else {
+            $user = User::find($uid);
+            if($user){
+                return $user->supportchatmessages;
+            } else {
+                return [];
+            }
+        }
+        //return ["data" => Auth::user()->supportchatmessages ];
     }
 }

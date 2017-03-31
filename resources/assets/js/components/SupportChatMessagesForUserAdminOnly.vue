@@ -2,8 +2,8 @@
 
                     <ul class="list-group">
                         <li class="list-group-item" v-for="item in supportchatmessages">
-                            {{ item.message.message }}  
-                            <span class="pull-right">{{ item.message.created_at }}</span>
+                            {{ item.message }}  
+                            <span class="pull-right">{{ item.created_at }}</span>
                             <br/>-- {{ item.fromuser.name }} 
                         </li>
                     </ul>
@@ -24,15 +24,15 @@
             
         },
         created() {
-            //this.getFeed();
+            this.getFeed();
             this.listenForRealtimeActivity();
         },
         methods: {
             getFeed() {
                 var self = this;
-                return axios.get('/api/supportchatmessages?api_token=' + this.foruser.api_token, {})
+                return axios.get('/supportchat/history/' + this.foruser.id , {})
                 .then(function(response) {
-                    self.supportchatmessages = response.message.message;
+                    self.supportchatmessages = response.data;//message.message;
                 });
             },
             listenForRealtimeActivity() {
