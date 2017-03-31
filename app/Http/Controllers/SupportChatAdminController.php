@@ -86,6 +86,9 @@ class SupportChatAdminController extends Controller
 
         $supportchatmessage->save();
 
+        $supportchatmessage->touserdata = $supportchatmessage->touser();
+        $supportchatmessage->fromuserdata = $supportchatmessage->fromuser();
+
         event(new SupportChatMessageEvent($supportchatmessage));
 
         //$request->session()->flash('status', 'Task was successful!');

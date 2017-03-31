@@ -32,6 +32,8 @@ class SupportChatMessageEvent implements ShouldBroadcast
     public function __construct(SupportChatMessage $message)
     {
         $this->message = $message;
+        //$this->message->touser = $message->touser;
+        //$this->message->fromuser = $message->fromuser;
     }
 
     /**
