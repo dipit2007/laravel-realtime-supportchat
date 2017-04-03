@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 61);
+/******/ 	return __webpack_require__(__webpack_require__.s = 62);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -433,7 +433,7 @@ module.exports = function normalizeComponent (
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(28);
+var normalizeHeaderName = __webpack_require__(29);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -10980,12 +10980,12 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(20);
-var buildURL = __webpack_require__(23);
-var parseHeaders = __webpack_require__(29);
-var isURLSameOrigin = __webpack_require__(27);
+var settle = __webpack_require__(21);
+var buildURL = __webpack_require__(24);
+var parseHeaders = __webpack_require__(30);
+var isURLSameOrigin = __webpack_require__(28);
 var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(22);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(23);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -11081,7 +11081,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(25);
+      var cookies = __webpack_require__(26);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -11202,7 +11202,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(19);
+var enhanceError = __webpack_require__(20);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -11275,7 +11275,7 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(39);
+__webpack_require__(40);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -11283,17 +11283,17 @@ __webpack_require__(39);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', __webpack_require__(44));
-Vue.component('activity', __webpack_require__(50));
-Vue.component('broadcastmessage-form', __webpack_require__(43));
+Vue.component('example', __webpack_require__(45));
+Vue.component('activity', __webpack_require__(51));
+Vue.component('broadcastmessage-form', __webpack_require__(44));
 
-Vue.component('supportchatmessageform', __webpack_require__(46));
-Vue.component('supportchatmessages', __webpack_require__(48));
+Vue.component('supportchatmessageform', __webpack_require__(47));
+Vue.component('supportchatmessages', __webpack_require__(49));
 
-Vue.component('supportchatchannels', __webpack_require__(45));
+Vue.component('supportchatchannels', __webpack_require__(46));
 
-Vue.component('supportchatmessageformadminonly', __webpack_require__(47));
-Vue.component('supportchatmessagesforuseradminonly', __webpack_require__(49));
+Vue.component('supportchatmessageformadminonly', __webpack_require__(48));
+Vue.component('supportchatmessagesforuseradminonly', __webpack_require__(50));
 
 var app = new Vue({
     el: '#app',
@@ -11384,12 +11384,18 @@ var app = new Vue({
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(14);
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(15);
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11397,7 +11403,7 @@ module.exports = __webpack_require__(14);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(9);
-var Axios = __webpack_require__(16);
+var Axios = __webpack_require__(17);
 var defaults = __webpack_require__(2);
 
 /**
@@ -11432,14 +11438,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(6);
-axios.CancelToken = __webpack_require__(15);
+axios.CancelToken = __webpack_require__(16);
 axios.isCancel = __webpack_require__(7);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(30);
+axios.spread = __webpack_require__(31);
 
 module.exports = axios;
 
@@ -11448,7 +11454,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11512,7 +11518,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11520,10 +11526,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(17);
-var dispatchRequest = __webpack_require__(18);
-var isAbsoluteURL = __webpack_require__(26);
-var combineURLs = __webpack_require__(24);
+var InterceptorManager = __webpack_require__(18);
+var dispatchRequest = __webpack_require__(19);
+var isAbsoluteURL = __webpack_require__(27);
+var combineURLs = __webpack_require__(25);
 
 /**
  * Create a new instance of Axios
@@ -11604,7 +11610,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11663,14 +11669,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(21);
+var transformData = __webpack_require__(22);
 var isCancel = __webpack_require__(7);
 var defaults = __webpack_require__(2);
 
@@ -11749,7 +11755,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11775,7 +11781,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11807,7 +11813,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11834,7 +11840,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11877,7 +11883,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11952,7 +11958,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11971,7 +11977,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12031,7 +12037,7 @@ module.exports = (
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12052,7 +12058,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12127,7 +12133,7 @@ module.exports = (
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12146,7 +12152,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12190,7 +12196,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12224,7 +12230,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12265,7 +12271,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12294,7 +12300,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12396,7 +12402,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12438,7 +12444,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12480,11 +12486,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12522,6 +12560,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.supportchatmessages = response.data; //message.message;
             });
         },
+
+        handleScroll: function handleScroll(e) {},
         listenForRealtimeActivity: function listenForRealtimeActivity() {
             var _this = this;
 
@@ -12555,7 +12595,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12625,7 +12665,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12687,15 +12727,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
 
-window._ = __webpack_require__(42);
+window._ = __webpack_require__(43);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -12705,7 +12745,7 @@ window._ = __webpack_require__(42);
 
 window.$ = window.jQuery = __webpack_require__(3);
 
-__webpack_require__(40);
+__webpack_require__(41);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -12713,7 +12753,7 @@ __webpack_require__(40);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(59);
+window.Vue = __webpack_require__(60);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -12721,7 +12761,7 @@ window.Vue = __webpack_require__(59);
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(13);
+window.axios = __webpack_require__(14);
 
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': window.Laravel.csrfToken,
@@ -12753,7 +12793,7 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
 });
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -15137,7 +15177,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {var asyncGenerator = function () {
@@ -15911,7 +15951,7 @@ module.exports = Echo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -33000,23 +33040,23 @@ module.exports = Echo;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(60)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(61)(module)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(31),
+  __webpack_require__(32),
   /* template */
-  __webpack_require__(55),
+  __webpack_require__(54),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/BroadcastMessageForm.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/BroadcastMessageForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] BroadcastMessageForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33027,43 +33067,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3813f494", Component.options)
+    hotAPI.createRecord("data-v-63efdac1", Component.options)
   } else {
-    hotAPI.reload("data-v-3813f494", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(32),
-  /* template */
-  __webpack_require__(58),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-716c344e", Component.options)
-  } else {
-    hotAPI.reload("data-v-716c344e", Component.options)
+    hotAPI.reload("data-v-63efdac1", Component.options)
   }
 })()}
 
@@ -33078,15 +33084,15 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(33),
   /* template */
-  __webpack_require__(57),
+  __webpack_require__(59),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatChannels.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] SupportChatChannels.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33095,9 +33101,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-60a0fb1b", Component.options)
+    hotAPI.createRecord("data-v-fbf3ed3a", Component.options)
   } else {
-    hotAPI.reload("data-v-60a0fb1b", Component.options)
+    hotAPI.reload("data-v-fbf3ed3a", Component.options)
   }
 })()}
 
@@ -33112,15 +33118,15 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(34),
   /* template */
-  __webpack_require__(51),
+  __webpack_require__(52),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessageForm.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatChannels.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageForm.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] SupportChatChannels.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33129,9 +33135,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-05c87cf0", Component.options)
+    hotAPI.createRecord("data-v-2e3a4ea0", Component.options)
   } else {
-    hotAPI.reload("data-v-05c87cf0", Component.options)
+    hotAPI.reload("data-v-2e3a4ea0", Component.options)
   }
 })()}
 
@@ -33146,15 +33152,15 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(54),
+  __webpack_require__(55),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessageFormAdminOnly.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessageForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageFormAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageForm.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33163,9 +33169,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-23f64d3b", Component.options)
+    hotAPI.createRecord("data-v-6ea13b3b", Component.options)
   } else {
-    hotAPI.reload("data-v-23f64d3b", Component.options)
+    hotAPI.reload("data-v-6ea13b3b", Component.options)
   }
 })()}
 
@@ -33186,9 +33192,9 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessages.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessageFormAdminOnly.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] SupportChatMessages.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] SupportChatMessageFormAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33197,9 +33203,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-18ceba97", Component.options)
+    hotAPI.createRecord("data-v-41977350", Component.options)
   } else {
-    hotAPI.reload("data-v-18ceba97", Component.options)
+    hotAPI.reload("data-v-41977350", Component.options)
   }
 })()}
 
@@ -33214,15 +33220,15 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(37),
   /* template */
-  __webpack_require__(56),
+  __webpack_require__(57),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/SupportChatMessagesForUserAdminOnly.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessages.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] SupportChatMessagesForUserAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] SupportChatMessages.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -33231,9 +33237,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e5de6fe", Component.options)
+    hotAPI.createRecord("data-v-bddecfa8", Component.options)
   } else {
-    hotAPI.reload("data-v-3e5de6fe", Component.options)
+    hotAPI.reload("data-v-bddecfa8", Component.options)
   }
 })()}
 
@@ -33248,13 +33254,47 @@ var Component = __webpack_require__(1)(
   /* script */
   __webpack_require__(38),
   /* template */
-  __webpack_require__(52),
+  __webpack_require__(56),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/home/mridul/MyLab/githubdev/laravelrealtime/resources/assets/js/components/UserRealtimeActivity.vue"
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/SupportChatMessagesForUserAdminOnly.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] SupportChatMessagesForUserAdminOnly.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-87b80ada", Component.options)
+  } else {
+    hotAPI.reload("data-v-87b80ada", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(39),
+  /* template */
+  __webpack_require__(58),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/dips/MyLab/githubdev/laravelrealtimesupportchat/resources/assets/js/components/UserRealtimeActivity.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UserRealtimeActivity.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33265,9 +33305,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0f0fd1d1", Component.options)
+    hotAPI.createRecord("data-v-e1ecb248", Component.options)
   } else {
-    hotAPI.reload("data-v-0f0fd1d1", Component.options)
+    hotAPI.reload("data-v-e1ecb248", Component.options)
   }
 })()}
 
@@ -33275,7 +33315,42 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.supportchatchannels), function(channel) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_c('a', {
+      staticClass: "btn btn-primary btn-sm",
+      attrs: {
+        "href": channel.url,
+        "target": "_blank",
+        "id": "btn-chat"
+      },
+      on: {
+        "click": function($event) {
+          _vm.joinChatChannel(channel.key)
+        }
+      }
+    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel.key) + "  \n        "), _c('span', {
+      staticClass: "pull-right"
+    }, [_vm._v(_vm._s(channel.created_at))])])
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2e3a4ea0", module.exports)
+  }
+}
+
+/***/ }),
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33324,65 +33399,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-05c87cf0", module.exports)
-  }
-}
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Realtime Activity Dashboard")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.activities), function(item) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                            " + _vm._s(item.message) + "  \n                            "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))])])
-  }))])])])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0f0fd1d1", module.exports)
-  }
-}
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.supportchatmessages), function(item) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n        " + _vm._s(item.message) + "  \n        "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))]), _vm._v(" "), _c('br'), _vm._v("-- " + _vm._s(item.fromuser.name) + " \n    ")])
-  }))
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-18ceba97", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-41977350", module.exports)
   }
 }
 
@@ -33436,7 +33453,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-23f64d3b", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-63efdac1", module.exports)
   }
 }
 
@@ -33477,20 +33494,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('span', {
     staticClass: "input-group-btn"
   }, [_c('button', {
-    staticClass: "btn btn-primary btn-sm",
+    staticClass: "btn btn-primary btn-sm button is-primary",
     attrs: {
       "id": "btn-chat"
     },
     on: {
       "click": _vm.sendMessage
     }
-  }, [_vm._v("\n            Send\n        ")])])])
+  }, [_vm._v("\n            SEND\n        ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3813f494", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-6ea13b3b", module.exports)
   }
 }
 
@@ -33513,7 +33530,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3e5de6fe", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-87b80ada", module.exports)
   }
 }
 
@@ -33522,38 +33539,90 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.supportchatchannels), function(channel) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_c('a', {
-      staticClass: "btn btn-primary btn-sm",
+  return _c('div', {
+    staticClass: "supportchat-messages",
+    on: {
+      "scroll": _vm.handleScroll
+    }
+  }, [_c('div', {
+    staticClass: "direct-chat-messages"
+  }, _vm._l((_vm.supportchatmessages), function(item) {
+    return _c('div', [_c('div', {
+      staticClass: "chat-box-single-line"
+    }, [_c('abbr', {
+      staticClass: "timestamp"
+    }, [_vm._v(_vm._s(item.created_at))])]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-msg doted-border"
+    }, [_c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-name pull-left"
+    }, [_vm._v(_vm._s(item.fromuser.name))])]), _vm._v(" "), _c('img', {
+      staticClass: "direct-chat-img",
       attrs: {
-        "href": channel.url,
-        "target": "_blank",
-        "id": "btn-chat"
-      },
-      on: {
-        "click": function($event) {
-          _vm.joinChatChannel(channel.key)
-        }
+        "alt": "message user image",
+        "src": "/image/avatar.png"
       }
-    }, [_vm._v("\n            Connect\n        ")]), _vm._v("\n         " + _vm._s(channel.key) + "  \n        "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(channel.created_at))])])
-  }))
+    }), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-text"
+    }, [_vm._v("\n                " + _vm._s(item.message) + "\n            ")]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-timestamp pull-right"
+    }, [_vm._v(_vm._s(item.created_at))])]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-img-reply-small pull-left"
+    }), _vm._v(" "), _c('span', {
+      staticClass: "direct-chat-reply-name"
+    }, [_vm._v(_vm._s(item.fromuser.name))])])])])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-60a0fb1b", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-bddecfa8", module.exports)
   }
 }
 
 /***/ }),
 /* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Realtime Activity Dashboard")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.activities), function(item) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v("\n                            " + _vm._s(item.message) + "  \n                            "), _c('span', {
+      staticClass: "pull-right"
+    }, [_vm._v(_vm._s(item.created_at))])])
+  }))])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-e1ecb248", module.exports)
+  }
+}
+
+/***/ }),
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -33577,12 +33646,12 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-716c344e", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-fbf3ed3a", module.exports)
   }
 }
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42910,7 +42979,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(10)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -42938,11 +43007,12 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(12);
+__webpack_require__(12);
+module.exports = __webpack_require__(13);
 
 
 /***/ })
