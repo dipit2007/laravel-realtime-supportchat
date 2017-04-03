@@ -1,12 +1,44 @@
 <template>
 
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="item in supportchatmessages">
-                            {{ item.message }}  
-                            <span class="pull-right">{{ item.created_at }}</span>
-                            <br/>-- {{ item.fromuser.name }} 
-                        </li>
-                    </ul>
+                    <div class="supportchat-messages"   @scroll="handleScroll">
+                    <div class="direct-chat-messages">
+
+                        <div v-for="item in supportchatmessages">
+
+                        <div class="chat-box-single-line">
+                            <abbr class="timestamp">{{ item.created_at }}</abbr>
+                        </div>
+
+                        <!-- Message. Default to the left -->
+                        <div class="direct-chat-msg doted-border">
+                            <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-name pull-left">{{ item.fromuser.name }}</span>
+                            </div>
+                            <!-- /.direct-chat-info -->
+                            <img alt="message user image" src="/image/avatar.png" class="direct-chat-img"><!-- /.direct-chat-img -->
+                            
+                            <div class="direct-chat-text">
+                                {{ item.message }}
+                            </div>
+                            <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-timestamp pull-right">{{ item.created_at }}</span>
+                            </div>
+                            <div class="direct-chat-info clearfix">
+                                <span class="direct-chat-img-reply-small pull-left">
+
+                                </span>
+                                <span class="direct-chat-reply-name">{{ item.fromuser.name }}</span>
+                            </div>
+                            <!-- /.direct-chat-text -->
+                        </div>
+                        <!-- /.direct-chat-msg -->
+
+
+                        </div>
+
+                    </div> <!-- .direct-chat-messages -->
+                
+                </div>
                 
     
 </template>
@@ -34,6 +66,9 @@
                 .then(function(response) {
                     self.supportchatmessages = response.data;//message.message;
                 });
+            },
+            handleScroll: function(e) {
+                
             },
             listenForRealtimeActivity() {
                 Echo.join('support.' + this.foruser.id)

@@ -12613,6 +12613,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['user', 'foruser'],
@@ -12636,6 +12668,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.supportchatmessages = response.data; //message.message;
             });
         },
+
+        handleScroll: function handleScroll(e) {},
         listenForRealtimeActivity: function listenForRealtimeActivity() {
             var _this = this;
 
@@ -33386,14 +33420,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('span', {
     staticClass: "input-group-btn"
   }, [_c('button', {
-    staticClass: "btn btn-primary btn-sm",
+    staticClass: "btn btn-primary btn-sm button is-primary",
     attrs: {
       "id": "btn-chat"
     },
     on: {
       "click": _vm.sendMessage
     }
-  }, [_vm._v("\n            Send\n        ")])])])
+  }, [_vm._v("\n            SEND\n        ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -33516,15 +33550,44 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
-    staticClass: "list-group"
+  return _c('div', {
+    staticClass: "supportchat-messages",
+    on: {
+      "scroll": _vm.handleScroll
+    }
+  }, [_c('div', {
+    staticClass: "direct-chat-messages"
   }, _vm._l((_vm.supportchatmessages), function(item) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n        " + _vm._s(item.message) + "  \n        "), _c('span', {
-      staticClass: "pull-right"
-    }, [_vm._v(_vm._s(item.created_at))]), _vm._v(" "), _c('br'), _vm._v("-- " + _vm._s(item.fromuser.name) + " \n    ")])
-  }))
+    return _c('div', [_c('div', {
+      staticClass: "chat-box-single-line"
+    }, [_c('abbr', {
+      staticClass: "timestamp"
+    }, [_vm._v(_vm._s(item.created_at))])]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-msg doted-border"
+    }, [_c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-name pull-left"
+    }, [_vm._v(_vm._s(item.fromuser.name))])]), _vm._v(" "), _c('img', {
+      staticClass: "direct-chat-img",
+      attrs: {
+        "alt": "message user image",
+        "src": "/image/avatar.png"
+      }
+    }), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-text"
+    }, [_vm._v("\n                " + _vm._s(item.message) + "\n            ")]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-timestamp pull-right"
+    }, [_vm._v(_vm._s(item.created_at))])]), _vm._v(" "), _c('div', {
+      staticClass: "direct-chat-info clearfix"
+    }, [_c('span', {
+      staticClass: "direct-chat-img-reply-small pull-left"
+    }), _vm._v(" "), _c('span', {
+      staticClass: "direct-chat-reply-name"
+    }, [_vm._v(_vm._s(item.fromuser.name))])])])])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

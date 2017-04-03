@@ -3,8 +3,8 @@
         <input id="btn-input" type="text" name="message" class="form-control input-sm" placeholder="Type your message here..." v-model="newMessage" @keyup.enter="sendMessage">
 
         <span class="input-group-btn">
-            <button class="btn btn-primary btn-sm" id="btn-chat" @click="sendMessage">
-                Send
+            <button class="btn btn-primary btn-sm button is-primary" id="btn-chat" @click="sendMessage">
+                SEND
             </button>
         </span>
     </div>
