@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('pagecss')
-<link href="{{ asset('css/chat.css') }}" rel="stylesheet">           
+<link href="{{ asset('css/chat.css') }}" rel="stylesheet">   
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 @endsection
 
 
@@ -9,7 +11,33 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 col-sm-12">
+        <div class="col-md-4 ">
+            <div class="panel panel-default supportchat-box supportchat-box-on chat-popup">
+                <div class="panel-heading supportchat-head">
+
+                    LIVE Channels
+
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu slidedown">
+                            <li>
+                                <a href="#" id="chatroomrefresh">
+                                    <i class="fa fa-refresh fa-fw"></i> Refresh
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="panel-body supportchat-messages" style="max-height: 300px;overflow: auto;">
+                    <supportchatchannels v-on:newsupportchatmessage="receivedNewSupportChatMessage" :user="{{ auth()->user() }}"></supportchatchannels>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8  col-sm-12">
             <div class="supportchat-box supportchat-box-on chat-popup" id="qnimate">
                 
                 <div class="supportchat-head">

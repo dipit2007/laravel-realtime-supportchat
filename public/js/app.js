@@ -12374,7 +12374,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 for (key in response.data.channels) {
                     var uid = key.split('-')[1].split('.')[1];
-                    keys[x] = { "key": key, "url": "supportchat/" + uid };
+                    keys[x] = { "key": key, "url": "/supportchat/" + uid };
                     ++x;
                 }
 
