@@ -21,5 +21,14 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('broadcastmessage', 'BroadcastMessageController');
 
-Route::get('supportchat/history/{uid}', 'SupportChatAdminController@history');
-Route::resource('supportchat', 'SupportChatAdminController');
+Route::group([
+	//'prefix'=>'backend',
+    //'namespace'=>'FrontEnd',
+	'middleware' => 'auth'
+	], 
+	function()
+	{
+		Route::get('supportchat/history/{uid}', 'SupportChatAdminController@history');
+		Route::resource('supportchat', 'SupportChatAdminController');
+	}
+);  
