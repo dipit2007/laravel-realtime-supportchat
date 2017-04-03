@@ -69,6 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
+                        <a href="{{ route('supportchat.index') }}">Support Chat</a>
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
@@ -79,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Support Chat
                 </div>
 
                 <div class="links">
